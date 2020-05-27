@@ -3,4 +3,7 @@ webpack demo project, web fonts can be downloaded here:
 
 https://google-webfonts-helper.herokuapp.com/fonts/alex-brush?subsets=latin
 
+npm run build
+npm run start
+
 
