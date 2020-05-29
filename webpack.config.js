@@ -7,6 +7,7 @@ module.exports = {
   mode: 'development',
   entry: {
     app: './src/index.js',
+    polyfills: './src/polyfills.js',
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -15,15 +16,23 @@ module.exports = {
   module: {
     rules: [
       {
+        test: require.resolve('./src/globals.js'),
+        use: 'exports-loader?file,parse=helpers.parse',
+      },
+        /*
+      {
         test: require.resolve('./src/index.js'),
         use: 'imports-loader?this=>window',
       },
+      */
     ],
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
       title: 'Output Management',
+      excludeChunks: ['polyfills'], 
+      template: './src/index.html',
     }),
     new webpack.ProvidePlugin({
       join: ['lodash', 'join'],
