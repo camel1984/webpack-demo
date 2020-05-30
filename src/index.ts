@@ -1,4 +1,5 @@
-import _ from 'lodash';
+import * as _ from 'lodash';
+
 function component() {
   const element = document.createElement('div');
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
@@ -6,3 +7,4 @@ function component() {
 }
 
 document.body.appendChild(component());
+
